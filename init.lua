@@ -3,3 +3,4 @@ require("config.lazy")
 
 -- Import our vim options (line numbers + relative, tabstop, etc.)
 require("options")
+

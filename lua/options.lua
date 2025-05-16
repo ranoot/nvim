@@ -26,3 +26,12 @@ vim.opt.inccommand = "split"
 vim.opt.ignorecase = true
 
 vim.opt.termguicolors = true
+
+-- LSP configurations
+vim.diagnostic.config({
+    virtual_text = false,
+    virtual_lines = { current_line = true },
+})
+
+-- Keymap Settings
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
