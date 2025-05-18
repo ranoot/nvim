@@ -2,5 +2,5 @@
 require("config.lazy")
 
 -- Import our vim options (line numbers + relative, tabstop, etc.)
-require("options")
-
+require("config.keymaps")
+require("config.qol")

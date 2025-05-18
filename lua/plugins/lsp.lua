@@ -4,17 +4,14 @@ return {
     },
     {
         "mason-org/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end,
+        opts = {},
     },
     {
         "mason-org/mason-lspconfig.nvim",
         dependencies = { "mason.nvim" },
-        config = function()
-            -- Change the servers that are being enabled here
-            require("mason-lspconfig").setup()
-        end,
+        opts = {
+            -- Change the languages that are being setup in here
+        },
     },
     {
         "folke/lazydev.nvim",
@@ -53,7 +50,13 @@ return {
             -- C-k: Toggle signature help (if signature.enabled = true)
             --
             -- See :h blink-cmp-config-keymap for defining your own keymap
-            keymap = { preset = "default" },
+            keymap = {
+                preset = "default",
+
+                ["<C-b>"] = { "select_prev", "fallback" },
+                ["<C-n>"] = { "select_next", "fallback" },
+                -- ["<C-m>"] = { "accept", "fallback" }, -- think as MMMMMMM <=> yes/ accept
+            },
 
             appearance = {
                 -- "mono" (default) for "Nerd Font Mono" or "normal" for "Nerd Font"
