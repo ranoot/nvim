@@ -53,9 +53,19 @@ return {
             keymap = {
                 preset = "default",
 
-                ["<C-b>"] = { "select_prev", "fallback" },
+                -- ["<C-b>"] = { "select_prev", "fallback" }, -- Better to use ctrl-p since all the other plugins do it
                 ["<C-n>"] = { "select_next", "fallback" },
-                -- ["<C-m>"] = { "accept", "fallback" }, -- think as MMMMMMM <=> yes/ accept
+            },
+
+            cmdline = {
+                keymap = { preset = "inherit" },
+                enabled = true,
+                sources = {
+                    "lsp",
+                    "path",
+                    "buffer",
+                    "cmdline",
+                },
             },
 
             appearance = {
@@ -75,6 +85,13 @@ return {
                         module = "lazydev.integrations.blink",
                         -- make lazydev completions top priority (see `:h blink.cmp`)
                         score_offset = 100,
+                    },
+                    cmdline = {
+                        module = 'blink.cmp.sources.cmdline',
+                        -- Disable shell commands on windows, since they cause neovim to hang
+                        enabled = function()
+                            return not vim.fn.getcmdline():match("^!.*")
+                        end,
                     },
                 },
             },
