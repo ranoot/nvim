@@ -54,7 +54,6 @@ return {
                 preset = "default",
 
                 -- ["<C-b>"] = { "select_prev", "fallback" }, -- Better to use ctrl-p since all the other plugins do it
-                ["<C-n>"] = { "select_next", "fallback" },
             },
 
             cmdline = {
@@ -88,10 +87,12 @@ return {
                     },
                     cmdline = {
                         module = 'blink.cmp.sources.cmdline',
-                        -- Disable shell commands on windows, since they cause neovim to hang
-                        enabled = function()
-                            return not vim.fn.getcmdline():match("^!.*")
-                        end,
+                        -- Disable shell commands on windows (specifically WSL), since they cause neovim to hang
+                        -- Can enable when not in WSL
+                        --
+                        -- enabled = function()
+                        --     return not vim.fn.getcmdline():match("^!.*")
+                        -- end,
                     },
                 },
             },

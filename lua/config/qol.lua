@@ -12,7 +12,8 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4 -- can set to 0 to be equal to tabstop
 
-vim.opt.clipboard = "unnamedplus"
+-- Sets the clipboard to the system keyboard
+-- vim.opt.clipboard = "unnamedplus"
 
 -- Possible to remove, just centers your cursor on the viewable lines
 -- vim.opt.scrolloff = 999

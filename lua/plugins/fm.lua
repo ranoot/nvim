@@ -6,7 +6,9 @@ return {
         ---@type oil.SetupOpts
         opts = {
             default_file_explorer = true,
+            delete_to_trash = true;
             keymaps = {
+                ["yd"] = { function () vim.fn.setreg("+", require("oil").get_current_dir()) end, mode = 'n', },
             },
             float = {
                 max_height = 0.7,
@@ -33,9 +35,14 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function ()
             local builtin = require('telescope.builtin')
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+            vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope live grep' })
+            -- vim.keymap.set('n', '<leader>ff', builtin.find_files({
+            --     cwd = require("oil").get_current_dir(),
+            -- }), { desc = 'Telescope find files in current Oil directory' })
             vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
             vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+            vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = 'Telescope find document symbols' })
+            vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = 'Telescope find marks' })
             vim.keymap.set('n', '<leader>fh', function ()
                require("telescope.builtin").find_files({ hidden = true }) 
             end, { desc = 'Telescope (F)ind (H)idden' })
