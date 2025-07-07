@@ -6,7 +6,9 @@ vim.keymap.set("n", "<leader>o", function() require("oil").open_float(nil, {prev
 -- System clipboard keymaps
 -- Make sure to have xclip or xsel installed to use these
 vim.keymap.set({'n', 'v'}, "<leader>p", "\"+p")
+vim.keymap.set({'n', 'v'}, "<leader>P", "\"+P")
 vim.keymap.set({'n', 'v'}, "<leader>y", "\"+y")
+vim.keymap.set({'n', 'v'}, "<leader>yy", "\"+yy")
 
 vim.keymap.set('n', "<leader>yn", function ()
     vim.fn.setreg('+', vim.api.nvim_buf_get_name(0))

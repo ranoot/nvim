@@ -56,17 +56,6 @@ return {
                 -- ["<C-b>"] = { "select_prev", "fallback" }, -- Better to use ctrl-p since all the other plugins do it
             },
 
-            cmdline = {
-                keymap = { preset = "inherit" },
-                enabled = true,
-                sources = {
-                    "lsp",
-                    "path",
-                    "buffer",
-                    "cmdline",
-                },
-            },
-
             appearance = {
                 -- "mono" (default) for "Nerd Font Mono" or "normal" for "Nerd Font"
                 -- Adjusts spacing to ensure icons are aligned
